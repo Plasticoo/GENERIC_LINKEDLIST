@@ -33,6 +33,35 @@ void gll_push_end(struct gll_node *head, void *data, size_t data_size) {
     }
 }
 
+void gll_pop_top(struct gll_node **head) {
+    struct gll_node *new_head = NULL;
+
+    if (*head == NULL) {
+        return;
+    }
+
+    new_head = (*head)->next;
+    free(*head);
+
+    *head = new_head;
+}
+
+void gll_pop_end(struct gll_node *head) {
+    struct gll_node *current = head;
+
+    if (head->next == NULL) {
+        free(head);
+        return;
+    }
+
+    while (current->next->next != NULL) {
+        current = current->next;
+    }
+
+    free(current->next);
+    current->next = NULL;
+}
+
 void gll_print(struct gll_node *head, void (*pfnct)(void*)) {
     return;
 }
