@@ -1,6 +1,7 @@
 #include "g_ll.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 void gll_push_top(struct gll_node **head, void *data, size_t data_size) {
     int i;
@@ -63,5 +64,12 @@ void gll_pop_end(struct gll_node *head) {
 }
 
 void gll_print(struct gll_node *head, void (*pfnct)(void*)) {
-    return;
+    while (head != NULL) {
+        (*pfnct)(head->data);
+        head = head->next;
+    }
+}
+
+void gll_print_int(void *data) {
+    printf("%d ", *(int*)data);
 }
