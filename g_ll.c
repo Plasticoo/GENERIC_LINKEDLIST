@@ -19,10 +19,7 @@ void gll_push_top(struct gll_node **head, void *data, size_t data_size) {
 
 void gll_push_end(struct gll_node *head, void *data, size_t data_size) {
 
-    if (!head) {
-        //gll_push_top(&head, data, data_size);
-        return;
-    }
+    if (!head) return;
 
     int i;
     struct gll_node *current = head;
@@ -52,6 +49,9 @@ void gll_pop_top(struct gll_node **head) {
 }
 
 void gll_pop_end(struct gll_node *head) {
+
+    if (!head) return;
+
     struct gll_node *current = head;
 
     if (head->next == NULL) {
@@ -69,6 +69,9 @@ void gll_pop_end(struct gll_node *head) {
 }
 
 void gll_pop_idx(struct gll_node **head, int index) {
+
+    if (*head == NULL) return;
+
     int i;
     struct gll_node *current = *head;
     struct gll_node *temp = NULL;
@@ -93,6 +96,9 @@ void gll_pop_idx(struct gll_node **head, int index) {
 }
 
 int gll_length(struct gll_node *head) {
+
+    if (head == NULL) return -1;
+
     int count = 0;
     struct gll_node *current = head;
 
@@ -137,4 +143,8 @@ void gll_print_float(void *data) {
 
 void gll_print_double(void *data) {
     printf("%lf ", *(double*)data);
+}
+
+void gll_print_byte(void *data) {
+    printf("%02x ", *(unsigned*)data);
 }

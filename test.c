@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     int ordered[] = {1,2,3,4,5};
 
     for (i = 0; i < 5; i++) {
-        //gll_push_top(&list, &ordered[i], sizeof(int));
+        gll_push_top(&list, &ordered[i], sizeof(int));
         gll_push_end(list, &ordered[i], sizeof(int));
     }
 
@@ -30,6 +30,9 @@ int main(int argc, char *argv[])
     printf("Deleting 3rd element: \n");
     gll_print(list, gll_print_int);
     printf("Size: %d\n", gll_length(list));
+
+    printf("Printing in bytes: \n");
+    gll_print(list, gll_print_byte);
 
     gll_free(list);
 

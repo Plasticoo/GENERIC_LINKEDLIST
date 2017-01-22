@@ -8,7 +8,6 @@ struct gll_node {
     struct gll_node *next;
 };
 
-
 void gll_push_top(struct gll_node **head, void *data, size_t data_size);
 void gll_push_end(struct gll_node *head, void *data, size_t data_size);
 
@@ -25,5 +24,6 @@ void gll_print_char(void *data);
 void gll_print_int(void *data);
 void gll_print_float(void *data);
 void gll_print_double(void *data);
+void gll_print_byte(void *data);
 
 #endif
