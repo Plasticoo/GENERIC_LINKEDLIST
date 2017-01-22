@@ -1,5 +1,7 @@
 #include "g_ll.h"
 
+#include <stdio.h>
+
 int main(int argc, char *argv[])
 {
     struct gll_node *list = NULL;
@@ -12,6 +14,13 @@ int main(int argc, char *argv[])
         gll_push_end(list, &ordered[i], sizeof(int));
     }
 
+    printf("Additions to the list: \n");
+    gll_print(list, gll_print_int);
+
+    gll_pop_top(&list);
+    gll_pop_end(list);
+
+    printf("Deletions from the list: \n");
     gll_print(list, gll_print_int);
 
     return 0;
