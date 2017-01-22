@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 
     for (i = 0; i < 5; i++) {
         gll_push_top(&list, &ordered[i], sizeof(int));
+        gll_push_end(list, &ordered[i], sizeof(int));
     }
 
     gll_print(list, gll_print_int);

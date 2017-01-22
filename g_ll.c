@@ -27,7 +27,7 @@ void gll_push_end(struct gll_node *head, void *data, size_t data_size) {
 
     current->next = malloc(sizeof(struct gll_node));
     current->next->data = malloc(data_size);
-    current->next->data = NULL;
+    current->next->next = NULL;
 
     for (i = 0; i < (int)data_size; i++) {
         *(char*)(current->next->data + i) = *(char*)(data + i);
