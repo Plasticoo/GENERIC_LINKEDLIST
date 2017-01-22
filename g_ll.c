@@ -72,7 +72,7 @@ void gll_pop_idx(struct gll_node **head, int index) {
         gll_pop_top(head);
     }
 
-    for (i = 0; i < index; i++) {
+    for (i = 0; i < index - 1; i++) {
         if (current->next == NULL) {
             return;
         }

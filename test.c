@@ -23,5 +23,10 @@ int main(int argc, char *argv[])
     printf("Deletions from the list: \n");
     gll_print(list, gll_print_int);
 
+    gll_pop_idx(&list, 2);
+
+    printf("Deleting 3rd element: \n");
+    gll_print(list, gll_print_int);
+
     return 0;
 }
