@@ -7,14 +7,14 @@ void gll_push_top(struct gll_node **head, void *data, size_t data_size) {
     int i;
     struct gll_node *new_node = malloc(sizeof(struct gll_node));
 
-    new_node->data  = malloc(data_size);
-    new_node->next = (*head);
+    new_node->data = malloc(data_size);
+    new_node->next = *head;
 
     for (i = 0; i < (int)data_size; i++) {
         *(char *)(new_node->data + i) = *(char *)(data + i);
     }
 
-    (*head) = new_node;
+    *head = new_node;
 }
 
 void gll_push_end(struct gll_node *head, void *data, size_t data_size) {
@@ -57,6 +57,7 @@ void gll_pop_end(struct gll_node *head) {
         current = current->next;
     }
 
+    free(current->next->data);
     free(current->next);
     current->next = NULL;
 }
@@ -81,6 +82,7 @@ void gll_pop_idx(struct gll_node **head, int index) {
     temp = current->next;
     current->next = temp->next;
 
+    free(temp->data);
     free(temp);
 }
 
@@ -94,6 +96,16 @@ int gll_length(struct gll_node *head) {
     }
 
     return count + 1;
+}
+
+void gll_free(struct gll_node *head) {
+    struct gll_node *temp;
+
+    while((temp = head)) {
+        head = head->next;
+        free(temp->data);
+        free(temp);
+    }
 }
 
 void gll_print(struct gll_node *head, void (*pfnct)(void*)) {
