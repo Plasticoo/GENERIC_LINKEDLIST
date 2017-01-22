@@ -18,6 +18,12 @@ void gll_push_top(struct gll_node **head, void *data, size_t data_size) {
 }
 
 void gll_push_end(struct gll_node *head, void *data, size_t data_size) {
+
+    if (!head) {
+        //gll_push_top(&head, data, data_size);
+        return;
+    }
+
     int i;
     struct gll_node *current = head;
 
