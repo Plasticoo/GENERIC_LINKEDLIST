@@ -63,6 +63,29 @@ void gll_pop_end(struct gll_node *head) {
     current->next = NULL;
 }
 
+void gll_pop_idx(struct gll_node **head, int index) {
+    int i;
+    struct gll_node *current = *head;
+    struct gll_node *temp = NULL;
+
+    if (index == 0) {
+        gll_pop_top(head);
+    }
+
+    for (i = 0; i < index; i++) {
+        if (current->next == NULL) {
+            return;
+        }
+
+        current = current->next;
+    }
+
+    temp = current->next;
+    current->next = temp->next;
+
+    free(temp);
+}
+
 void gll_print(struct gll_node *head, void (*pfnct)(void*)) {
     while (head != NULL) {
         (*pfnct)(head->data);
@@ -74,4 +97,16 @@ void gll_print(struct gll_node *head, void (*pfnct)(void*)) {
 
 void gll_print_int(void *data) {
     printf("%d ", *(int*)data);
+}
+
+void gll_print_char(void *data) {
+    printf("%c ", *(char*)data);
+}
+
+void gll_print_float(void *data) {
+    printf("%f ", *(float*)data);
+}
+
+void gll_print_double(void *data) {
+    printf("%lf ", *(double*)data);
 }
