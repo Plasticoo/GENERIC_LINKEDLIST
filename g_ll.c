@@ -68,6 +68,8 @@ void gll_print(struct gll_node *head, void (*pfnct)(void*)) {
         (*pfnct)(head->data);
         head = head->next;
     }
+
+    putchar('\n');
 }
 
 void gll_print_int(void *data) {
