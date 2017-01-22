@@ -86,6 +86,18 @@ void gll_pop_idx(struct gll_node **head, int index) {
     free(temp);
 }
 
+int gll_length(struct gll_node *head) {
+    int count = 0;
+    struct gll_node *current = head;
+
+    while(current->next != NULL) {
+        count++;
+        current = current->next;
+    }
+
+    return count + 1;
+}
+
 void gll_print(struct gll_node *head, void (*pfnct)(void*)) {
     while (head != NULL) {
         (*pfnct)(head->data);
