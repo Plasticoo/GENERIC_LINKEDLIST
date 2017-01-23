@@ -1,3 +1,4 @@
 #!/bin/sh
 
-clang -ggdb g_ll.c test.c -o test
+gcc -shared -fPIC g_ll.c -o libgll.so
+gcc -L$(pwd) -o test test.c -lgll
