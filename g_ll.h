@@ -15,6 +15,8 @@ void gll_pop_top(struct gll_node **head);
 void gll_pop_end(struct gll_node *head);
 void gll_pop_idx(struct gll_node **head, int index);
 
+void* gll_get(struct gll_node *head, int index);
+
 int  gll_length(struct gll_node *head);
 void gll_free(struct gll_node *head);
 

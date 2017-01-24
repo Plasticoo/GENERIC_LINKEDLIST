@@ -95,6 +95,24 @@ void gll_pop_idx(struct gll_node **head, int index) {
     free(temp);
 }
 
+void* gll_get(struct gll_node *head, int index) {
+    if (!head) return NULL;
+    if (index == 0) return head->data;
+
+    int i;
+    struct gll_node *temp = head;
+
+    for (i = 0; i < index; i++) {
+        if (temp->next == NULL) {
+            return NULL;
+        }
+
+        temp = temp->next;
+    }
+
+    return temp->data;
+}
+
 int gll_length(struct gll_node *head) {
 
     if (head == NULL) return -1;

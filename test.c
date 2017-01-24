@@ -31,6 +31,15 @@ int main(int argc, char *argv[])
     gll_print(list, gll_print_int);
     printf("Size: %d\n", gll_length(list));
 
+    printf("Getting some elements: \n");
+    int *num = gll_get(list, 0);
+    int *num1 = gll_get(list, 1);
+    int *num2 = gll_get(list, 2);
+
+    printf("1st element: %d\n", *num);
+    printf("2nd element: %d\n", *num1);
+    printf("3rd element: %d\n", *num2);
+
     gll_pop_top(&list);
     gll_pop_end(list);
 
@@ -43,6 +52,15 @@ int main(int argc, char *argv[])
     printf("Deleting 3rd element: \n");
     gll_print(list, gll_print_int);
     printf("Size: %d\n", gll_length(list));
+
+    printf("Getting some elements: \n");
+    int *num3 = gll_get(list, 0);
+    int *num4 = gll_get(list, 1);
+    int *num5 = gll_get(list, 2);
+
+    printf("1st element: %d\n", *num3);
+    printf("2nd element: %d\n", *num4);
+    printf("3rd element: %d\n", *num5);
 
     printf("Printing in bytes: \n");
     gll_print(list, gll_print_byte);
